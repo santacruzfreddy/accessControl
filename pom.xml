@@ -10,12 +10,34 @@
 	</parent>
 	<groupId>com.qnkStartUp</groupId>
 	<artifactId>accessControl</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>{$VERSION_ACCESO}</version>
 	<name>accessControl</name>
 	<description>Project to create all access and features each Apps</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>des</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<VERSION_ACCESO>0.0.1-SNAPSHOT</VERSION_ACCESO>
+				<VERSION_ACCESSO_MODEL>0.0.1-SNAPSHOT</VERSION_ACCESSO_MODEL>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<VERSION_ACCESO>0.0.1-SNAPSHOT</VERSION_ACCESO>
+				<VERSION_ACCESSO_MODEL>0.0.1-RELEASE</VERSION_ACCESSO_MODEL>
+			</properties>
+		</profile>
+	</profiles>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,6 +58,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--Own libs-->
+		<dependency>
+			<groupId>com.qnkStartUp</groupId>
+			<artifactId>accessControl.model</artifactId>
+			<version>{$VERSION_ACCESSO_MODEL}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -1,5 +1,6 @@
 package com.qnkStartUp.accessControl.Controllers;
 
+import com.qnkStartUp.accessControl.model.entity.Country;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class CountryController {
 
     @PostMapping(name = "/create")
-    public ResponseEntity<String> create() {
+    public ResponseEntity<String> create(@RequestBody Country country) {
         try {
 
         } catch (Exception ex) {
